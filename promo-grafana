@@ -1,1 +1,11 @@
+## Cara untuk login ke promotheus dan grafana 
+
+###Kondisi :
+1. Promotheus dan Grafana ini berjalan di kubernetes cluster (EKS)
+2. Sudah login ke AWS CLI dan EKS
+
+1. Pastikan pods promotheus dan grafana running:
+```
+$ kubectl get pods -n monitor
+```
 
