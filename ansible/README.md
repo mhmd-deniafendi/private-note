@@ -49,6 +49,7 @@ $ sudo ansible-playbook cloudwatch-agent.yml -kK
 $ sudo nano config.json
 ```
 
-### 8. Jalankan playbook copyEnableServic untuk copy file config.json ke remote server dan enable service cloudwatch agent
+### 8. Jalankan playbook copyEnableService untuk copy file config.json ke remote server dan enable service cloudwatch agent
 ```
-$ sudo ansible-playbook 
+$ sudo ansible-playbook copyEnableService.yml -kK
+```
