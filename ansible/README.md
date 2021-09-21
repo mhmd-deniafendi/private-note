@@ -37,3 +37,4 @@ $ ansible -m ping all -u user --ask-pass
 $ sudo mkdir install
 ```
 
+### 6. Buat file config.json
