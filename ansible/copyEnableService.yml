@@ -1,7 +1,6 @@
 - hosts: [server-adl]
   become: true
   tasks: 
-  
       ## Step untuk copy file config.json ke remote server
     - name: setting dan copy config.json cloudwatch
       copy:
