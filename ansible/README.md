@@ -53,3 +53,6 @@ $ sudo nano config.json
 ```
 $ sudo ansible-playbook copyEnableService.yml -kK
 ```
+![image](https://user-images.githubusercontent.com/80587939/134176406-8437a2ea-c1cb-4581-a0c9-75786aab07f7.png)
+
+#### note : lihat pada bagian changed
