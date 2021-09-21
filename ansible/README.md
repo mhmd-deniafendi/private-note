@@ -1,6 +1,6 @@
 ## Cara install dan konfigurasi Ansible
 #### Tuorial ini menjelaskan bagaimana cara untuk menginstall ansible dan mengkonfigurasi ansible dengan menggunakan playbook
-#### Study case : install cloudwatch agent 
+#### Study case : install cloudwatch agent https://www.wellarchitectedlabs.com/cost/200_labs/200_aws_resource_optimization/4_memory_plugin/
 
 ### 1. Install Ansble pada AMI 
 https://www.snel.com/support/how-to-install-ansible-on-centos-7/
@@ -32,4 +32,8 @@ $ ansible -m ping all -u user --ask-pass
 ### jika sudah mendapatkan notice seperti diatas berarti sudah terhubung dengan remote server
 
 
-### 5. Create playbook 
+### 5. Buat folder untuk menyimpan playbook, dalam hal ini saya membuat folder dengan nama "install" di /home/$user/install
+```
+$ sudo mkdir install
+```
+
