@@ -37,4 +37,16 @@ $ ansible -m ping all -u user --ask-pass
 $ sudo mkdir install
 ```
 
-### 6. Buat file config.json
+### 6. Jalankan playbook tersebut
+```
+$ sudo ansible-playbook cloudwatch-agent.yml -kK
+```
+![image](https://user-images.githubusercontent.com/80587939/134174189-cb3e58b7-425a-4995-88ea-5745b42ad1ae.png)
+
+
+### 7. Buat file config.json file terlampir
+```
+$ sudo nano config.json
+```
+
+### 7. 
