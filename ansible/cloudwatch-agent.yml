@@ -1,0 +1,12 @@
+---
+- hosts: all
+  #gather_facts: True
+  become: true
+  tasks:
+          - name: Download cloudwatch-agent package
+            shell: wget https://s3.amazonaws.com/amazoncloudwatch-agent/amazon_linux/amd64/latest/amazon-cloudwatch-agent.rpm
+
+          - name: Install cloudwatch-agent
+            yum:
+               name: ./amazon-cloudwatch-agent.rpm
+               state: present
