@@ -1,6 +1,8 @@
 - hosts: [server-adl]
   become: true
-  tasks:
+  tasks: 
+  
+      ## Step untuk copy file config.json ke remote server
     - name: setting dan copy config.json cloudwatch
       copy:
         src: config.json
@@ -8,5 +10,7 @@
         owner: root
         group: root
         mode: 0755
+    
+      ## Step untuk enable cloudwatch agent    
     - name: enable service amazon-cloudwatch-agent
       shell: sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -c file:/opt/aws/amazon-cloudwatch-agent/bin/config.json -s
