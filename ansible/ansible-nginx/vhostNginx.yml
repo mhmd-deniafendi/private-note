@@ -1,0 +1,72 @@
+### Masukan host yang akan di config oleh ansible
+### Lihat pada /etc/ansible/host
+- hosts: all
+  become: true
+  tasks:
+
+    #### Membuat directory dengan nama sites-available
+    - name: Create directory sites-available
+      file:
+        path: /etc/nginx/sites-available
+        owner: root
+        group: root
+        mode: 0755
+        state: directory
+
+    #### Membuat directory dengan nama sites-enabled    
+    - name: Create directory sites-enabled
+      file:
+        path: /etc/nginx/sites-enabled
+        owner: root
+        group: root
+        mode: 0755
+        state: directory
+
+    #### Membuat directory, untuk custom directory FE    
+    - name: Create directory root for FE
+      file:
+        path: /opt/nginx/fe
+        owner: root
+        group: root
+        mode: 0755
+        state: directory
+
+    #### Mengcopy nginx.conf     
+    - name: Copy nginx.conf
+      copy:
+        src: nginx.conf
+        dest: /etc/nginx/nginx.conf
+        owner: root
+        group: root
+        mode: 0644
+    
+    #### Mengcopy vhost yang sudah di config    
+    - name: Copy BSP-app-prod-fe
+      copy:
+        src: bsp-app-prod-fe.conf
+        dest: /etc/nginx/sites-available/bsp-app-prod-fe.conf
+        owner: root
+        group: root
+        mode: 0644
+       
+    #### copy custom file index.html    
+    - name: Copy index.html
+      copy:
+        src: index.html
+        dest: /opt/nginx/fe/index.html
+        owner: root
+        group: root
+        mode: 0644    
+
+    #### Symlink pada directory /etc/nginx/sites-available/bsp-app-prod-fe.conf --> /etc/nginx/sites-enabled/bsp-app-prod-fe.conf
+    - name: enable site
+      file:
+        src: /etc/nginx/sites-available/bsp-app-prod-fe.conf  
+        dest: /etc/nginx/sites-enabled/bsp-app-prod-fe.conf
+        state: link
+
+    #### Restart nginx service    
+    - name: restart nginx
+      service:
+        name: nginx
+        state: restarted
