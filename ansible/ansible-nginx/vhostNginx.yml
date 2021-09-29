@@ -41,7 +41,7 @@
         mode: 0644
     
     #### Mengcopy vhost yang sudah di config    
-    - name: Copy BSP-app-prod-fe
+    - name: Copy vhost frontend
       copy:
         src: frontend.conf
         dest: /etc/nginx/sites-available/frontend.conf
