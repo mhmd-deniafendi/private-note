@@ -44,7 +44,7 @@
     - name: Copy BSP-app-prod-fe
       copy:
         src: bsp-app-prod-fe.conf
-        dest: /etc/nginx/sites-available/bsp-app-prod-fe.conf
+        dest: /etc/nginx/sites-available/frontend.conf
         owner: root
         group: root
         mode: 0644
@@ -58,11 +58,11 @@
         group: root
         mode: 0644    
 
-    #### Symlink pada directory /etc/nginx/sites-available/bsp-app-prod-fe.conf --> /etc/nginx/sites-enabled/bsp-app-prod-fe.conf
+    #### Symlink pada directory /etc/nginx/sites-available/frontend.conf --> /etc/nginx/sites-enabled/frontend.conf
     - name: enable site
       file:
-        src: /etc/nginx/sites-available/bsp-app-prod-fe.conf  
-        dest: /etc/nginx/sites-enabled/bsp-app-prod-fe.conf
+        src: /etc/nginx/sites-available/frontend.conf
+        dest: /etc/nginx/sites-enabled/frontend.conf
         state: link
 
     #### Restart nginx service    
